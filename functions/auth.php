@@ -46,8 +46,8 @@ function getCurrentUser($conn) {
  * @param string $redirect_path Jalur relatif setelah BASE_URL (misal: 'index.php?page=login' atau 'index.php?page=dashboard').
  */
 function checkAccess($user_data, $required_roles, $redirect_path) {
-    global $BASE_URL; // Akses konstanta BASE_URL dari config.php
-    $full_redirect_url = $BASE_URL . '/' . ltrim($redirect_path, '/');
+    // BASE_URL adalah konstanta dari config.php
+    $full_redirect_url = BASE_URL . '/' . ltrim($redirect_path, '/');
 
     if (!$user_data) {
         $_SESSION['message'] = "Anda harus login untuk mengakses halaman ini.";

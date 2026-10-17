@@ -1,8 +1,8 @@
 <?php
-require '../../vendor/autoload.php';
+require __DIR__ . '/../../../vendor/autoload.php';
 use Dompdf\Dompdf;
 
-include "../../config/config.php";
+require_once __DIR__ . "/../../../config/config.php";
 
 $id = $_GET['id'];
 $query = "SELECT i.*, s.jenis_kerusakan, s.deskripsi, u.username AS pembuat, p.nama AS nama_pelanggan

@@ -100,7 +100,7 @@ $invoice = $stmt_invoice->get_result()->fetch_assoc();
         
         <?php if ($service['foto_kerusakan']): ?>
         <p><strong>Foto Kerusakan:</strong><br>
-        <img src="uploads/<?php echo htmlspecialchars($service['foto_kerusakan']); ?>" 
+        <img src="<?= BASE_URL ?>/uploads/<?php echo htmlspecialchars($service['foto_kerusakan']); ?>" 
              class="img-fluid rounded mt-2" style="max-height: 200px;"></p>
         <?php endif; ?>
     </div>

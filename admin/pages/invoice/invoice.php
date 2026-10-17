@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../../../config/config.php";
+require_once __DIR__ . "/../../../config/config.php";
 
 
 if (isset($_POST['submit_invoice'])) {

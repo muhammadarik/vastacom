@@ -187,10 +187,7 @@ ini_set('display_errors', 1);
     </section>
 
      <!-- Products Section -->
-      <?php
-      $upload_dir_server = __DIR__ . '/../assets/image/';
-      $upload_dir_url = BASE_URL . 'assets/image/';
-      ?>
+      <?php $upload_dir_url = 'assets/image/';?>
       
 <section id="products" class="py-5 bg-light">
     <div class="container">

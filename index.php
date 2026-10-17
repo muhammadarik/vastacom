@@ -1,6 +1,6 @@
 <?php
 session_start(); // Selalu mulai session di awal setiap permintaan
-include "config/config.php";
+require_once __DIR__ . "/config/config.php";
 include "functions/auth.php";
 // --- AMBIL PARAMETER PAGE ---
 // Ambil parameter 'page' dari URL, default ke 'home'
@@ -61,6 +61,16 @@ if ($page == 'dashboard') {
 
     // Periksa apakah user adalah 'pelanggan'. checkAccess akan mengurus redirect jika tidak.
     checkAccess($currentUser, ['pelanggan'], 'index.php?page=login'); // Pelanggan saja yang bisa akses dashboard ini
+
+    // Jika user adalah admin atau teknisi (meskipun mereka melewati isLoggedIn() di atas),
+    // kita harus mengarahkan mereka ke dashboard khusus mereka.
+    if ($currentUser && $currentUser['role'] == 'admin') {
+        header("Location: " . BASE_URL . "/admin/index.php?page=dashboard"); // Redirect ke dashboard admin
+        exit();
+    } elseif ($currentUser && $currentUser['role'] == 'teknisi') {
+         header("Location: " . BASE_URL . "/admin/index.php?page=dashboard"); // Redirect ke dashboard teknisi
+         exit();
+    }
 }
 
 

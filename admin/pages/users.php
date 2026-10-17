@@ -1,5 +1,5 @@
 <?php
-include '../config/config.php';
+require_once __DIR__ . '/../../config/config.php';
 
 // tampilkan data users
 $result = $conn->query("SELECT * FROM users");
@@ -82,7 +82,7 @@ if (isset($_GET['delete'])) {
                 <input type="file" name="gambar" class="form-control mb-2">
                 <?php if (!empty($row['gambar'])): ?>
                 <div class="mb-2">
-                    <img src="/assets/image/<?= $row['gambar'] ?>" width="80">
+                    <img src="assets/image/<?= $row['gambar'] ?>" width="80">
                     <p class="text-muted" style="font-size: 0.8em;">Gambar saat ini</p>
                 </div>
                 <?php endif; ?>

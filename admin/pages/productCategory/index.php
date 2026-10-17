@@ -1,5 +1,5 @@
 <?php
-include "../config/config.php";
+require_once __DIR__ . "/../../../config/config.php";
 
 // get data kategori dari database
 $kategori = mysqli_query($conn, "SELECT * FROM product_category");

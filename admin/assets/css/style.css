@@ -1,3 +1,68 @@
-body { font-family: Arial, sans-serif; }
-/* .pagination a { padding: 6px 12px; margin: 0 2px; border: 1px solid #ccc; text-decoration: none; }
-.pagination a:hover { background-color: #eee; } */
+:root {
+    --admin-ink: #172033;
+    --admin-muted: #718096;
+    --admin-surface: #ffffff;
+    --admin-bg: #f4f7fb;
+    --admin-border: #e7edf4;
+    --admin-accent: #4263eb;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--admin-ink);
+    background: var(--admin-bg);
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    margin-bottom: 1.5rem !important;
+    padding: .9rem 1.25rem;
+    background: var(--admin-surface) !important;
+    border-bottom: 1px solid var(--admin-border);
+    box-shadow: 0 3px 14px rgb(27 39 63 / 5%);
+}
+
+.navbar-brand { color: var(--admin-ink) !important; font-weight: 700; }
+.navbar .nav-link { color: #566176; }
+.navbar .nav-link:hover, .navbar .nav-link:focus { color: var(--admin-accent); }
+
+#dashboard h1 {
+    margin: 0 0 .35rem;
+    font-size: clamp(1.65rem, 3vw, 2rem);
+    font-weight: 700;
+}
+
+#dashboard p { color: var(--admin-muted); }
+
+.dashboard + .container,
+body > .container { max-width: 1440px; }
+
+.stat-card, .tab-content .card {
+    overflow: hidden;
+    border: 1px solid var(--admin-border);
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgb(27 39 63 / 6%);
+}
+
+.stat-card { min-height: 150px; }
+.stat-card .card-body { padding: 1.35rem; }
+.stat-card .card-icon { display: inline-block; margin-bottom: .45rem; font-size: 1.5rem; }
+.stat-card .card-title { font-size: .9rem; font-weight: 600; opacity: .9; }
+.stat-card .card-text { margin: 0; font-size: 1.8rem; font-weight: 700; }
+
+.tab-content .card-header {
+    padding: 1rem 1.15rem;
+    background: var(--admin-surface);
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.tab-content .card-header h5 { color: var(--admin-ink); font-size: 1rem; font-weight: 700; }
+.tab-content .card-body { padding: 1.15rem; }
+.table { margin-bottom: 0; vertical-align: middle; }
+.table thead th { color: var(--admin-muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; }
+.badge { padding: .45em .7em; border-radius: 999px; }
+
+@media (max-width: 767.98px) {
+    .navbar { padding-inline: .75rem; }
+    .tab-content .card-body { padding: .8rem; }
+}

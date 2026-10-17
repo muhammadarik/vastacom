@@ -3,7 +3,7 @@ require_once __DIR__ . '/../../../config/config.php';
 
 // Database connection
 function getDBConnection() {
-    $conn = mysqli_connect("localhost", "root", "root", "vastacom_db", 3307);
+    $conn = mysqli_connect($GLOBALS['host'], $GLOBALS['user'], $GLOBALS['pass'], $GLOBALS['db']);
     
     if (!$conn) {
         die("Koneksi database gagal: " . mysqli_connect_error());
@@ -121,10 +121,10 @@ function handleAddService() {
         addStatusHistory($serviceId, $status, $userId, 'Service created');
         
         // Redirect ke halaman service setelah berhasil
-        header("Location: /fp-pemrograman-web/admin/index.php?page=service/index&success=add");
+        header("Location: " . BASE_URL . "/admin/index.php?page=service/index&success=add");
     } else {
         // Redirect ke halaman service setelah gagal
-        header("Location: /fp-pemrograman-web/admin/index.php?page=service/index&error=1");
+        header("Location: " . BASE_URL . "/admin/index.php?page=service/index&error=1");
     }
     
     $stmt->close();
@@ -203,10 +203,10 @@ function handleEditService() {
         }
         
         // Redirect ke halaman service setelah berhasil
-            header("Location: /fp-pemrograman-web/admin/index.php?page=service/index&success=edit");
+            header("Location: " . BASE_URL . "/admin/index.php?page=service/index&success=edit");
         } else {
             // Redirect ke halaman service setelah gagal
-            header("Location: /fp-pemrograman-web/admin/index.php?page=service/index&error=1");
+            header("Location: " . BASE_URL . "/admin/index.php?page=service/index&error=1");
         }
     $stmt->close();
     $conn->close();
@@ -245,10 +245,10 @@ function handleDeleteService() {
         }
         
         // Redirect ke halaman service setelah berhasil
-            header("Location: /fp-pemrograman-web/admin/index.php?page=service/index&success=delete");
+            header("Location: " . BASE_URL . "/admin/index.php?page=service/index&success=delete");
         } else {
             // Redirect ke halaman service setelah gagal
-            header("Location: /fp-pemrograman-web/admin/index.php?page=service/index&error=1");
+            header("Location: " . BASE_URL . "/admin/index.php?page=service/index&error=1");
         }
     
     $stmt->close();

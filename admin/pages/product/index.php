@@ -1,5 +1,5 @@
 <?php
-include '../config/config.php';
+require_once __DIR__ . '/../../../config/config.php';
 
 // ==== Konfigurasi Pagination ====
 $limit_options = [10, 20, 50, 100]; // Pilihan jumlah data per halaman
@@ -15,11 +15,11 @@ if ($current_page < 1) {
 
 $offset = ($current_page - 1) * $limit; // Offset untuk query SQL
 
-// Contoh: $_SERVER['DOCUMENT_ROOT'] . '/fp-pemrograman-web/assets/image/';
-$upload_dir_server = $_SERVER['DOCUMENT_ROOT'] . '/assets/image/';
+// Lokasi folder upload di server (otomatis mengikuti lokasi project)
+$upload_dir_server = ROOT_PATH . '/assets/image/';
 
 // Ini adalah URL dasar untuk memanggil gambar dari browser.
-$upload_dir_url = '/assets/image/';
+$upload_dir_url = BASE_URL . '/assets/image/';
 
 // Pastikan folder upload ada dan memiliki izin tulis (penting untuk upload gambar)
 if (!is_dir($upload_dir_server)) {

@@ -1,5 +1,14 @@
 <?php
 require_once __DIR__ . '/../../config/config.php';
+<<<<<<< Updated upstream
+=======
+
+// Halaman ini harus dibuka lewat router admin (agar header/CSS ikut dimuat)
+if (realpath($_SERVER['SCRIPT_FILENAME']) === __FILE__) {
+    header("Location: " . BASE_URL . "/admin/index.php?page=dashboard");
+    exit;
+}
+>>>>>>> Stashed changes
 $query = "SELECT * FROM produk p where p.status = '1'";
 $result = mysqli_query($conn, $query);
 

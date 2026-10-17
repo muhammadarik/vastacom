@@ -240,7 +240,7 @@ $totalPages = max(1, ceil($totalServices / $perPage));
                     <h5 class="modal-title" id="addServiceModalLabel">Add New Service</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="<?= BASE_URL ?>admin/pages/service/service.php" method="POST" enctype="multipart/form-data">
+                <form action="<?= BASE_URL ?>/admin/pages/service/service.php" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                         <input type="hidden" name="action" value="add">
                         <div class="mb-3">
@@ -414,7 +414,7 @@ $totalPages = max(1, ceil($totalServices / $perPage));
                     <h5 class="modal-title" id="deleteServiceModalLabel">Confirm Delete</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="deleteServiceForm" action="<?= BASE_URL ?>admin/pages/service/service.php" method="POST">
+                <form id="deleteServiceForm" action="<?= BASE_URL ?>/admin/pages/service/service.php" method="POST">
                     <div class="modal-body">
                         <input type="hidden" name="action" value="delete">
                         <input type="hidden" id="delete_id" name="id">
@@ -513,11 +513,11 @@ $totalPages = max(1, ceil($totalServices / $perPage));
                             
                             if (service.foto_kentsakan) {
                                 const photoLink = document.createElement('a');
-                                photoLink.href = 'uploads/' + service.foto_kentsakan;
+                                photoLink.href = '<?= BASE_URL ?>/uploads/' + service.foto_kentsakan;
                                 photoLink.target = '_blank';
                                 
                                 const photoImg = document.createElement('img');
-                                photoImg.src = 'uploads/' + service.foto_kentsakan;
+                                photoImg.src = '<?= BASE_URL ?>/uploads/' + service.foto_kentsakan;
                                 photoImg.style.maxWidth = '100%';
                                 photoImg.style.maxHeight = '300px';
                                 photoImg.classList.add('img-thumbnail');
@@ -639,12 +639,12 @@ document.querySelectorAll('.edit-service').forEach(button => {
                     
                     if (service.foto_kerusakan) {
                         const img = document.createElement('img');
-                        img.src = `uploads/${service.foto_kerusakan}`;
+                        img.src = `<?= BASE_URL ?>/uploads/${service.foto_kerusakan}`;
                         img.style.maxWidth = '200px';
                         img.classList.add('img-thumbnail');
                         
                         const link = document.createElement('a');
-                        link.href = `uploads/${service.foto_kerusakan}`;
+                        link.href = `<?= BASE_URL ?>/uploads/${service.foto_kerusakan}`;
                         link.target = '_blank';
                         link.appendChild(img);
                         
