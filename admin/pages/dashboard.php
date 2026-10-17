@@ -1,5 +1,5 @@
 <?php
-include '../config/config.php';
+require_once __DIR__ . '/../../config/config.php';
 $query = "SELECT * FROM produk p where p.status = '1'";
 $result = mysqli_query($conn, $query);
 

@@ -5,18 +5,19 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 // Koneksi ke database
-$host = "localhost";
+$host = "127.0.0.1";
 $user = "root"; // Ganti sesuai hosting jika live
-$pass = "";     // Ganti sesuai hosting jika live
-$db   = "vastacom_db_v1"; // Ganti jika perlu
+$pass = "root";     // Ganti sesuai hosting jika live
+$db   = "vastacom_db"; // Ganti jika perlu
+$port = 3307;
 
-$conn = mysqli_connect($host, $user, $pass, $db);
+$conn = mysqli_connect($host, $user, $pass, $db, $port);
 if (!$conn) {
     die("Koneksi gagal: " . mysqli_connect_error());
 }
 
 // BASE URL otomatis (deteksi protokol dan host)
-$base_path = "/fp-pemrograman-web/"; // <- ganti jika folder project berbeda
+$base_path = "/vastacom/"; // <- ganti jika folder project berbeda
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
 $calculated_base_url = $protocol . "://" . $_SERVER['HTTP_HOST'] . $base_path;
 

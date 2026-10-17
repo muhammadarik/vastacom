@@ -53,18 +53,14 @@ if (!in_array($page, $public_pages) && !isLoggedIn()) {
 // 3. Penanganan role-based access untuk dashboard pelanggan
 if ($page == 'dashboard') {
     $currentUser = getCurrentUser($conn); // Dapatkan data user yang login
+
+    if ($currentUser && in_array($currentUser['role'], ['admin', 'teknisi'], true)) {
+        header("Location: " . $base_url_admin . "index.php");
+        exit();
+    }
+
     // Periksa apakah user adalah 'pelanggan'. checkAccess akan mengurus redirect jika tidak.
     checkAccess($currentUser, ['pelanggan'], 'index.php?page=login'); // Pelanggan saja yang bisa akses dashboard ini
-
-    // Jika user adalah admin atau teknisi (meskipun mereka melewati isLoggedIn() di atas),
-    // kita harus mengarahkan mereka ke dashboard khusus mereka.
-    if ($currentUser && $currentUser['role'] == 'admin') {
-        header("Location: " . BASE_URL . "/admin/pages/dashboard.php"); // Redirect ke dashboard admin
-        exit();
-    } elseif ($currentUser && $currentUser['role'] == 'teknisi') {
-         header("Location: " . BASE_URL . "/admin/pages/dashboard_teknisi.php"); // Redirect ke dashboard teknisi
-         exit();
-    }
 }
 
 

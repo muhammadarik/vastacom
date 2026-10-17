@@ -1,8 +1,9 @@
+<?php require_once __DIR__ . '/../../config/config.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Vasta Computer</title>
-    <!-- <link rel="stylesheet" href="<?= $base_url_admin ?>assets/css/style.css"> -->
+    <link rel="stylesheet" href="<?= $base_url_admin ?>assets/css/style.css">
      <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="<?= $base_url_admin ?>assets/bootstrap5/css/bootstrap.min.css">

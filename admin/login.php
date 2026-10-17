@@ -1,5 +1,5 @@
 <?php
-include "../config/config.php";
+require_once __DIR__ . '/../config/config.php';
 
 if (isset($_SESSION['message'])) {
     echo '<div class="alert alert-danger align-items-center" role="alert">
@@ -32,7 +32,7 @@ if (isset($_POST['login'])) {
             $_SESSION['admin_id'] = $data['id'];
             $_SESSION['username'] = $data['username'];
             $_SESSION['role'] = $data['role'];
-            header("Location: ../admin/index.php");
+            header("Location: " . $base_url_admin . "index.php");
             exit;
         } else {
             echo "Password salah.";
@@ -40,7 +40,7 @@ if (isset($_POST['login'])) {
     }
 }
 ?>
-<!-- <link rel="stylesheet" href="<?= $base_url_admin ?>assets/css/style.css"> -->
+<link rel="stylesheet" href="<?= $base_url_admin ?>assets/css/style.css">
 <link rel="stylesheet" href="<?= $base_url_admin ?>assets/bootstrap5/css/bootstrap.min.css">
 <script src="<?= $base_url_admin ?>assets/bootstrap5/js/bootstrap.bundle.min.js"></script>
 

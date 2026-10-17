@@ -22,16 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
         $role = $login_result['role'];
 
         if ($role == 'admin') {
-            // Redirect ke dashboard admin (luar router user)
-            header("Location: " . BASE_URL . "/admin/pages/dashboard.php");
+            header("Location: " . $base_url_admin . "index.php");
             exit;
         } elseif ($role == 'pelanggan') {
             // Redirect ke dashboard pelanggan melalui router utama
             header("Location: " . BASE_URL . "/index.php?page=dashboard");
             exit;
         } elseif ($role == 'teknisi') {
-            // Redirect ke dashboard teknisi (luar router user)
-            header("Location: " . BASE_URL . "/admin/pages/dashboard_teknisi.php"); // Asumsi lokasi
+            header("Location: " . $base_url_admin . "index.php");
             exit;
         }
     } else {

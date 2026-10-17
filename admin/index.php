@@ -1,5 +1,5 @@
 <?php
-include "../config/config.php";
+require_once __DIR__ . '/../config/config.php';
 
 // Cek apakah user sudah login
 if (!isset($_SESSION['role']) || ($_SESSION['role'] != 'admin' && $_SESSION['role'] != 'teknisi')) {

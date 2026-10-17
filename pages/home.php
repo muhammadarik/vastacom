@@ -187,7 +187,10 @@ ini_set('display_errors', 1);
     </section>
 
      <!-- Products Section -->
-      <?php $upload_dir_url = '/assets/image/';?>
+      <?php
+      $upload_dir_server = __DIR__ . '/../assets/image/';
+      $upload_dir_url = BASE_URL . 'assets/image/';
+      ?>
       
 <section id="products" class="py-5 bg-light">
     <div class="container">
@@ -196,7 +199,7 @@ ini_set('display_errors', 1);
             <?php while ($row = mysqli_fetch_assoc($result)) : ?>
             <?php
             $gambar = htmlspecialchars($row['gambar']);
-            $gambar_path = $_SERVER['DOCUMENT_ROOT'] . $upload_dir_url . $gambar; // path server untuk file_exists
+            $gambar_path = $upload_dir_server . $gambar;
             ?>
             <div class="col-md-3 mb-4">
                 <div class="card h-100">
