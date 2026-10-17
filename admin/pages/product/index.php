@@ -249,10 +249,10 @@ $base_url_pagination = "?page=product/index" . (!empty($base_url_params) ? "&" .
                 <td><?= htmlspecialchars($row['nama']) ?></td>
                 <td>Rp<?= number_format(htmlspecialchars($row['harga']), 0, ',', '.') ?></td>
                 <td>
-                    <?php if (!empty($row['gambar'])): ?>
+                    <?php if (!empty($row['gambar']) && file_exists($upload_dir_server . $row['gambar'])): ?>
                         <img src="<?= htmlspecialchars($upload_dir_url . $row['gambar']) ?>" class="img-thumbnail img-fluid" width="100" alt="Gambar Produk">
                     <?php else: ?>
-                        Tidak ada gambar
+                        <img src="<?= htmlspecialchars($upload_dir_url) ?>default.jpg" class="img-thumbnail img-fluid" width="100" alt="Gambar tidak tersedia">
                     <?php endif; ?>
                 </td>
                 <td><?= htmlspecialchars($row['kategori']) ?></td>
@@ -300,7 +300,7 @@ $base_url_pagination = "?page=product/index" . (!empty($base_url_params) ? "&" .
                                 <div class="mb-3">
                                         <label for="gambar_edit_<?= htmlspecialchars($row['id']) ?>" class="form-label">Gambar Produk</label>
                                         <input type="file" name="gambar" id="gambar_edit_<?= htmlspecialchars($row['id']) ?>" class="form-control">
-                                        <?php if (!empty($row['gambar'])): ?>
+                                        <?php if (!empty($row['gambar']) && file_exists($upload_dir_server . $row['gambar'])): ?>
                                         <div class="mt-2">
                                             <img src="<?= htmlspecialchars($upload_dir_url . $row['gambar']) ?>" width="120" class="img-thumbnail" alt="Gambar saat ini">
                                             <p class="text-muted" style="font-size: 0.8em;">Gambar saat ini</p>
