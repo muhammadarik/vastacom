@@ -187,7 +187,10 @@ ini_set('display_errors', 1);
     </section>
 
      <!-- Products Section -->
-      <?php $upload_dir_url = 'assets/image/';?>
+      <?php
+      $upload_dir_server = ROOT_PATH . '/assets/image/';  // lokasi file di disk (untuk cek file_exists)
+      $upload_dir_url    = BASE_URL . '/assets/image/';   // URL gambar untuk browser
+      ?>
       
 <section id="products" class="py-5 bg-light">
     <div class="container">

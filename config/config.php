@@ -5,11 +5,11 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 // Koneksi ke database
-$host = "127.0.0.1";
+$host = "localhost"; // Ganti sesuai hosting jika live
 $user = "root"; // Ganti sesuai hosting jika live
-$pass = "root";     // Ganti sesuai hosting jika live
+$pass = "";     // Ganti sesuai hosting jika live
 $db   = "vastacom_db"; // Ganti jika perlu
-$port = 3307;
+$port = 3306;
 
 $conn = mysqli_connect($host, $user, $pass, $db, $port);
 if (!$conn) {
